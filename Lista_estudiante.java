@@ -32,11 +32,10 @@ public class Lista_estudiante {
           }
           estudiante.estudiante_sig = temp;
           temp.estudiante_sig = estudiante;
-          /* temp.estudiante_sig = estudiante;
-           estudiante.estudiante_anterior = temp;
-           estudiante.estudiante_sig = estudiante_raiz;
-           estudiante_raiz.estudiante_sig = estudiante;*/
-           tamaño++;
+          estudiante.estudiante_anterior = temp;
+          estudiante.estudiante_sig = estudiante_raiz;
+          estudiante_raiz.estudiante_anterior = estudiante;
+          tamaño++;
       }
   }
   public void mostrar(){
