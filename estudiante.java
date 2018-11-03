@@ -9,6 +9,7 @@ public class estudiante {
     int carnet, dpi, credito, contraseña;
     String nombre, correo, direccion, usuario;
     estudiante semestre, estudiante_sig, estudiante_anterior;
+    
     public estudiante( int carnet, int dpi, int credito, int contraseña, String nombre, String correo, String direccion, String usuario){
         this.carnet = carnet;
         this.dpi = dpi;
