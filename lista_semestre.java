@@ -7,20 +7,35 @@ package secy;
  */
 public class lista_semestre {
   int tamaño;
-  semestre primero;
+  semestre raiz;
+  
   public lista_semestre(){
       tamaño = 0;
-      primero = null;
+      raiz = null;
   }
   public boolean vacia(){
-      if( primero == null)
+      if( raiz == null)
           return true;
       else
           return false;
   }
   public void insertar(int año, Lista_curso curso){
+      semestre nuevo = new semestre(año, curso);
       if( vacia()){
-          
+         raiz = nuevo;
+         tamaño++;
+      }
+      else{
+        semestre temp = raiz;
+        while(temp.siguiente != null){
+         temp = temp.siguiente;
+         tamaño++;
+        }
+        temp.siguiente = nuevo;
+        nuevo.anterior = temp;
+        nuevo.siguiente = null;
+        tamaño++;
       }
   }
+  
 }
