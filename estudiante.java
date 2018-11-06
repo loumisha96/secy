@@ -8,9 +8,11 @@ package secy;
 public class estudiante {
     int carnet, dpi, credito, contraseña;
     String nombre, correo, direccion, usuario;
-    estudiante semestre, estudiante_sig, estudiante_anterior;
+    estudiante estudiante_sig, estudiante_anterior;
+    lista_semestre semestre;
     
-    public estudiante( int carnet, int dpi, int credito, int contraseña, String nombre, String correo, String direccion, String usuario){
+    public estudiante( int carnet, int dpi, int credito, int contraseña, String nombre,
+                      String correo, String direccion, String usuario, lista_semestre semestre){
         this.carnet = carnet;
         this.dpi = dpi;
         this.credito = credito;
@@ -21,5 +23,6 @@ public class estudiante {
         this.usuario = usuario;
         estudiante_sig = null;
         estudiante_anterior = null;
+        this.semestre = semestre;
     }
 }
