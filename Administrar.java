@@ -5,6 +5,15 @@
  */
 package secy;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author lourd
@@ -36,6 +45,7 @@ public class Administrar extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        cargar_btn = new javax.swing.JButton();
 
         jButton4.setText("jButton4");
 
@@ -60,6 +70,13 @@ public class Administrar extends javax.swing.JFrame {
 
         jButton6.setText("REPORTES");
 
+        cargar_btn.setText("Cargar Datos");
+        cargar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargar_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -81,7 +98,9 @@ public class Administrar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(56, 56, 56)
+                        .addComponent(cargar_btn)
+                        .addGap(33, 33, 33)
                         .addComponent(jButton6)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
@@ -99,7 +118,9 @@ public class Administrar extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton5))
                 .addGap(33, 33, 33)
-                .addComponent(jButton6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(cargar_btn))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
@@ -122,6 +143,69 @@ public class Administrar extends javax.swing.JFrame {
              
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+    String texto;
+    private void cargar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargar_btnActionPerformed
+      JFileChooser chooser = new JFileChooser();
+      chooser.showOpenDialog(this);
+      File abrir = chooser.getSelectedFile();
+      if(abrir != null){
+           String texto = " ";
+        try{
+            BufferedReader bf = new BufferedReader ( new FileReader(abrir));
+            String temp = " ";
+            String bfRead;
+            String[] curso= new String[8];
+            Lista_curso listaNueva = new Lista_curso();
+            int curso0 ;
+            int curso1 ;
+            int curso3;
+             int curso6;
+             int curso7; //= Integer.parseInt(curso[7]);
+            while((bfRead = bf.readLine())!= null){
+                temp =bfRead;
+                curso = temp.split(Pattern.quote(";"));
+                System.out.println("lala");
+             if(curso[0] ==null){
+                curso0=0; 
+             }
+             else
+               curso0 = Integer.parseInt(curso[0]);
+
+             if(curso[3] ==null){
+                curso3=0; 
+             }
+             else
+               curso3 = Integer.parseInt(curso[3]);
+             
+             if(curso[6] ==null){
+                curso6=0; 
+             }
+             else
+               curso6 = Integer.parseInt(curso[6]);
+             
+             if(curso[7] ==null){
+                curso7=0; 
+             }
+             else
+               curso7 = Integer.parseInt(curso[7]);
+                
+             
+             Curso curso_nodo = new Curso(curso0, curso[1], curso[2], curso3, curso[4], curso[5], curso6, curso7);
+             listaNueva.insetar(curso_nodo);
+             listaNueva.mostrar();
+           }
+           System.out.println(curso[1]);
+            
+            texto = temp;
+        }catch(Exception e){
+            System.out.println("No se encontró archivo");
+            
+        }
+          //System.out.println(texto);
+
+      }
+     
+    }//GEN-LAST:event_cargar_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +243,7 @@ public class Administrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cargar_btn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
