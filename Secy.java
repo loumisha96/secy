@@ -12,13 +12,16 @@ public class Secy {
      */
     public static void main(String[] args) {
         Lista_estudiante lista = new Lista_estudiante();
-        estudiante estudiante = new estudiante(1, 1, 1, 1, "nombre", "correo", "direccion"," usuario") ;
-        estudiante estudiante1 = new estudiante(2, 2, 2, 2, "nombre2", "correo2", "direccion2"," usuario2") ;
+        lista_semestre semestre = new lista_semestre();
+        Curso curso = new Curso(5, 5, 77, 88, "carlos", "Si");
+        Lista_curso listacurso = new Lista_curso();
+        estudiante estudiante = new estudiante(1, 1, 1, 1, "nombre", "correo", "direccion"," usuario", semestre) ;
+        estudiante estudiante1 = new estudiante(2, 2, 2, 2, "nombre2", "correo2", "direccion2"," usuario2", semestre) ;
         
         
         
         lista.insertar(estudiante1);
-        lista.insertar(estudiante1);
+        //lista.insertar(estudiante1);
         lista.insertar(estudiante);
       
         lista.mostrar();
