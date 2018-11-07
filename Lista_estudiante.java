@@ -8,11 +8,10 @@ package secy;
 public class Lista_estudiante {
   int tamaño;
   estudiante estudiante_raiz;
-  estudiante estudiante_fin;
+  
   public Lista_estudiante(){
       tamaño = 0;
       estudiante_raiz = null;
-      estudiante_fin = null;
   }
   public boolean vacia(){
       if(estudiante_raiz == null)
