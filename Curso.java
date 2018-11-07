@@ -7,9 +7,9 @@ package secy;
  */
 public class Curso {
     int numero, credito,  pre_requisito, post_requisito;
-    String catedratico, lab, estado;
+    String catedratico, lab, estado, nombre, seccion;
     Curso siguinte_curso;
-    public Curso(int numero, int credito, int pre_requisito, int post_requisito, String catedratico, String lab) {
+    public Curso(int numero, String nombre, String catedratico, int credito,String lab, String seccion, int pre_requisito, int post_requisito  ) {
       this.numero = numero;
       this.catedratico = catedratico;
       this.credito = credito;
