@@ -39,7 +39,7 @@ public class Lista_estudiante {
           tamaño++;
       }
   }
-  public estudiante buscar (int carnet){
+  public estudiante buscar (String carnet){
     estudiante temp = estudiante_raiz;
     
      if( temp.carnet == carnet){
@@ -81,7 +81,7 @@ public class Lista_estudiante {
   public void mostrar(){
     estudiante temp = estudiante_raiz;
     for ( int i=0; i<tamaño; i++){
-        System.out.println(temp.carnet+ ","+ temp.correo+","+ temp.dpi+","+ temp.nombre);
+        System.out.println(temp.carnet+ ","+ temp.dpi+","+ temp.nombre+","+ temp.correo +","+ temp.credito);
         temp = temp.estudiante_sig;
     }
   }
