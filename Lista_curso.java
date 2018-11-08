@@ -1,6 +1,7 @@
 
 package secy;
 
+
 /**
  *
  * @author lourd
@@ -94,8 +95,12 @@ public class Lista_curso {
    public void mostrar(){
       Curso temp = curso_raiz;
       for (int i =0; i<tamaño; i++){
-          System.out.println(temp.catedratico + ","+ temp.lab + ","+ temp.numero);
+          System.out.println(temp.numero +","+ temp.nombre +","+ temp.catedratico +","+ temp.credito +","+ temp.lab 
+                             +","+ temp.seccion +","+ temp.pre_requisito +","+temp.post_requisito);
           temp = temp.siguinte_curso;
       }
    } 
+   
+  
+   
 }
