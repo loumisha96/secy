@@ -91,6 +91,16 @@ public class Lista_curso {
            
        }
    }
+   public Curso obtenerCurso(int pos){
+       Curso temp = curso_raiz;
+       for(int i=0; i<tamaño; i++){
+           if( i == pos)
+               return temp;
+           else
+               temp = temp.siguinte_curso;
+       }
+       return null;
+   }
    
    public void mostrar(){
       Curso temp = curso_raiz;
