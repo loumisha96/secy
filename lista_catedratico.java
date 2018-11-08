@@ -8,6 +8,7 @@ package secy;
 public class lista_catedratico {
    int tamaño;
    catedratico cate_raiz;
+   
    public lista_catedratico(){
        tamaño = 0;
        cate_raiz = null;
