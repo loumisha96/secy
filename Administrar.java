@@ -66,6 +66,11 @@ public class Administrar extends javax.swing.JFrame {
         jButton2.setText("Modificar");
 
         jButton3.setText("Visualizar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Eliminar");
 
@@ -156,6 +161,7 @@ public class Administrar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     String texto;
     lista_semestre listaSemestre = new lista_semestre();
+    Lista_curso listaCurso = new Lista_curso();
     private void cargarCursos_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCursos_btnActionPerformed
       JFileChooser chooser = new JFileChooser();
       chooser.showOpenDialog(this);
@@ -167,7 +173,7 @@ public class Administrar extends javax.swing.JFrame {
             String temp = " ";
             String bfRead;
             String[] curso= new String[8];
-            Lista_curso listaCurso = new Lista_curso();
+            
             lista_catedratico listaCate = new lista_catedratico();
             
             
@@ -208,6 +214,7 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
+      
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
 
@@ -251,6 +258,12 @@ public class Administrar extends javax.swing.JFrame {
       }
      
     }//GEN-LAST:event_cargarEstudiantes_btnActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        asignacion.cursos = listaCurso; 
+        asignacion asign = new asignacion();
+        asign.show();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
