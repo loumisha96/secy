@@ -6,14 +6,16 @@ package secy;
  * @author lourd
  */
 public class Curso {
-    int numero, credito,  pre_requisito, post_requisito;
-    String catedratico, lab, estado, nombre, seccion;
+    int numero, credito;
+    String catedratico, lab, estado, nombre, seccion,  pre_requisito, post_requisito;
     Curso siguinte_curso;
-    public Curso(int numero, String nombre, String catedratico, int credito,String lab, String seccion, int pre_requisito, int post_requisito  ) {
+    public Curso(int numero, String nombre, String catedratico, int credito,String lab, String seccion, String pre_requisito, String post_requisito  ) {
       this.numero = numero;
+      this.nombre = nombre;
       this.catedratico = catedratico;
       this.credito = credito;
       this.lab = lab;
+      this.seccion = seccion;
       this.post_requisito = post_requisito;
       this.pre_requisito = pre_requisito;
       //this.estado = "Reprobado";
