@@ -193,11 +193,10 @@ public class Administrar extends javax.swing.JFrame {
              
              listaCurso.insetar(curso_nodo);
              listaCurso.mostrar();
-             
              listaSemestre.insertar(2018, listaCurso);
-             catedratico cate = new catedratico(curso[2], texto, bfRead, listaSemestre);
+             catedratico cate = new catedratico(curso[2], listaSemestre);
              listaCate.insertar(cate);
-             
+             listaCate.mostrar();
              
            }
             
