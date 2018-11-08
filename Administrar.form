@@ -66,12 +66,14 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                          <Component id="cargar_btn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="cargarCursos_btn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cargarEstudiantes_btn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -92,7 +94,8 @@
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cargar_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cargarCursos_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cargarEstudiantes_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="121" max="32767" attributes="0"/>
               </Group>
@@ -146,12 +149,20 @@
             <Property name="text" type="java.lang.String" value="REPORTES"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="cargar_btn">
+        <Component class="javax.swing.JButton" name="cargarCursos_btn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cargar Datos"/>
+            <Property name="text" type="java.lang.String" value="Cargar Cursos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cargar_btnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cargarCursos_btnActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="cargarEstudiantes_btn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargar Estudiantes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cargarEstudiantes_btnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
