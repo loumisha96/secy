@@ -14,10 +14,17 @@ public class asignacion extends javax.swing.JFrame {
     /**
      * Creates new form asignacion
      */
+    static Lista_curso cursos;
     public asignacion() {
         initComponents();
+        Curso curso;
+        for(int i=0; i<cursos.tamaño; i++){
+           curso = cursos.obtenerCurso(i);
+           asignaCurso_cb.addItem(curso.nombre);
+        }
     }
-
+     
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
