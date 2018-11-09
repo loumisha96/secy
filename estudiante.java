@@ -6,8 +6,8 @@ package secy;
  * @author lourd
  */
 public class estudiante {
-    int   credito, contraseña;
-    String carnet,dpi,nombre, correo, direccion, usuario;
+    int   credito;
+    String carnet,dpi,nombre, correo, direccion, usuario,  contraseña;
     estudiante estudiante_sig, estudiante_anterior;
     lista_semestre semestre;
     
@@ -16,7 +16,11 @@ public class estudiante {
         this.carnet = carnet;
         this.dpi = dpi;
         this.credito = credito;
-        this.contraseña = contraseña;
+        int ale = 0;
+        for ( int i =0; i<10; i++){
+            ale = (int)( Math.random()*150)+50; 
+        }
+        this.contraseña = carnet + ale;
         this.nombre = nombre;
         this.correo = correo;
         this.direccion = direccion;
