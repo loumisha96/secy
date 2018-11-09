@@ -18,10 +18,13 @@ public class asignacion extends javax.swing.JFrame {
     public asignacion() {
         initComponents();
         Curso curso;
-        for(int i=0; i<cursos.tamaño; i++){
+        if(cursos != null){
+          for(int i=0; i<cursos.tamaño; i++){
            curso = cursos.obtenerCurso(i);
            asignaCurso_cb.addItem(curso.nombre);
+        }  
         }
+        
     }
      
      
@@ -71,14 +74,11 @@ public class asignacion extends javax.swing.JFrame {
 
         jButton2.setText("Regresar");
 
-        asignarSemes_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         asignarSemes_cb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asignarSemes_cbActionPerformed(evt);
             }
         });
-
-        asignaCurso_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton3.setText("Asignar");
 
