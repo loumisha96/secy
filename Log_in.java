@@ -101,27 +101,27 @@ public class Log_in extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    static Lista_estudiante e;
     private void ingresar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresar_btnActionPerformed
 
       
-      
+         
         if ( user_txt.getText().equals("admin") && pass_txt.getText().equals("1234")){
           Administrar admin = new Administrar();
           admin.setVisible(true);
           this.setVisible(false);
       } 
-      //for ( int i=0; i< lista.tamaño; i++ ){
-       /* if(user_txt.getText().equals(e.usuario) && pass_txt.getText().equals(e.contraseña)){
-            System.out.println("hola");
-            }*/
-      //}
-      /*else{
+        else if(e.buscar(user_txt.getText(), pass_txt.getText())){
+            modulo_estudiante mod = new modulo_estudiante();
+            mod.setVisible(true);
+            this.setVisible(false);
+        }
+        else {
           Error error = new Error();
           error.setVisible(true);
           this.setVisible(false);
           
-      }*/
+      }
     }//GEN-LAST:event_ingresar_btnActionPerformed
     
     private void pass_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_txtActionPerformed
