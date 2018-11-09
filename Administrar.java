@@ -47,7 +47,7 @@ public class Administrar extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         cargarCursos_btn = new javax.swing.JButton();
         cargarEstudiantes_btn = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        salida_btn = new javax.swing.JButton();
 
         jButton4.setText("jButton4");
 
@@ -91,10 +91,10 @@ public class Administrar extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("Salir");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        salida_btn.setText("Salir");
+        salida_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                salida_btnActionPerformed(evt);
             }
         });
 
@@ -121,7 +121,7 @@ public class Administrar extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton7)
+                            .addComponent(salida_btn)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cargarCursos_btn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -149,7 +149,7 @@ public class Administrar extends javax.swing.JFrame {
                     .addComponent(cargarCursos_btn)
                     .addComponent(cargarEstudiantes_btn))
                 .addGap(33, 33, 33)
-                .addComponent(jButton7)
+                .addComponent(salida_btn)
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
@@ -227,7 +227,9 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
-      
+         asignacion.cursos = listaCurso; 
+        asignacion asign = new asignacion();
+        asign.show();
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
          Lista_estudiante listaEstudiante = new Lista_estudiante();
@@ -268,22 +270,23 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
+       asignacion.semestres= listaSemestre; 
+        asignacion asign = new asignacion();
+        asign.show();
      
     }//GEN-LAST:event_cargarEstudiantes_btnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        asignacion.cursos = listaCurso; 
-        asignacion asign = new asignacion();
-        asign.show();
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void salida_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salida_btnActionPerformed
         Log_in.e = listaEstudiante;
         pantalla_prinicipal pant = new pantalla_prinicipal();
         pant.setVisible(true);
         this.setVisible(false);
         
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_salida_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,9 +332,9 @@ public class Administrar extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton salida_btn;
     private javax.swing.JComboBox<String> tipo_cb;
     // End of variables declaration//GEN-END:variables
 }

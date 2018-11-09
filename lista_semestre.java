@@ -38,5 +38,15 @@ public class lista_semestre {
         tamaño++;
       }
   }
+  public semestre obtenerSemestre(int pos){
+      semestre temp = raiz;
+      for (int i=0; i<tamaño; i++){
+          if(i==pos)
+              return temp;
+          else
+              temp = temp.siguiente;
+      }
+      return null;
+  }
   
 }

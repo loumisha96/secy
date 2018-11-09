@@ -103,10 +103,7 @@ public class Log_in extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     static Lista_estudiante e;
     private void ingresar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresar_btnActionPerformed
-
-      
-         
-        if ( user_txt.getText().equals("admin") && pass_txt.getText().equals("1234")){
+      if ( user_txt.getText().equals("admin") && pass_txt.getText().equals("1234")){
           Administrar admin = new Administrar();
           admin.setVisible(true);
           this.setVisible(false);

@@ -5,6 +5,9 @@
  */
 package secy;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author lourd
@@ -15,6 +18,7 @@ public class asignacion extends javax.swing.JFrame {
      * Creates new form asignacion
      */
     static Lista_curso cursos;
+    static lista_semestre semestres;
     public asignacion() {
         initComponents();
         Curso curso;
@@ -23,6 +27,14 @@ public class asignacion extends javax.swing.JFrame {
            curso = cursos.obtenerCurso(i);
            asignaCurso_cb.addItem(curso.nombre);
         }  
+        }
+        semestre semestre;
+        if ( semestres != null){
+            for(int i= 0; i<semestres.tamaño; i++){
+                semestre = semestres.obtenerSemestre(i);
+                String semestres = Integer.toString(semestre.año);
+                asignarSemes_cb.addItem(semestres);
+            }
         }
         
     }
@@ -47,9 +59,10 @@ public class asignacion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         asignarSemes_cb = new javax.swing.JComboBox<>();
         asignaCurso_cb = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        asignar_btn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaAsigna = new javax.swing.JTable();
+        agregar_btn = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,23 +93,41 @@ public class asignacion extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Asignar");
+        asignar_btn.setText("Asignar");
+        asignar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignar_btnActionPerformed(evt);
+            }
+        });
 
         tablaAsigna.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "No.", "Curso", "Catedrático", "Créditosl", "Laboratorio", "Pre_Requisito", "Post_Requisito", "Desagsinar"
             }
         ));
         jScrollPane2.setViewportView(tablaAsigna);
+
+        agregar_btn.setText("Agregar");
+        agregar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(agregar_btn)
+                .addGap(96, 96, 96)
+                .addComponent(asignar_btn)
+                .addGap(203, 203, 203))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -107,21 +138,18 @@ public class asignacion extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(216, 216, 216)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(asignarSemes_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(asignaCurso_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(282, 282, 282))
+                                .addGap(46, 46, 46)))
+                        .addGap(8, 8, 8)
+                        .addComponent(asignaCurso_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +170,9 @@ public class asignacion extends javax.swing.JFrame {
                     .addComponent(asignarSemes_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(asignaCurso_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(asignar_btn)
+                    .addComponent(agregar_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -168,6 +198,42 @@ public class asignacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_asignarSemes_cbActionPerformed
 
+    private void asignar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignar_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_asignar_btnActionPerformed
+    String [][] matrizTemp ;
+    private void agregar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_btnActionPerformed
+        matrizTemp = new String[3][7];
+         Curso asign = (Curso)asignaCurso_cb.getSelectedItem(); 
+         int num =0;
+         String numero = Integer.toString(num);
+         String cre = Integer.toString(asign.credito);
+        for(int i=0; i<3; i++){
+            for (int j = 0; j<7; j++){
+                matrizTemp[i][0] = numero;
+                matrizTemp[i][1]= asign.nombre;
+                matrizTemp[i][1]= asign.catedratico;
+                matrizTemp[i][2]= cre;
+                matrizTemp[i][3]= asign.lab;
+                matrizTemp[i][4]= asign.pre_requisito;
+                matrizTemp[i][5]= asign.post_requisito;
+                matrizTemp[i][6]=  "Reprobado";
+                num++;
+            }
+        }
+        System.out.println(matrizTemp[0][1]);
+        
+    }//GEN-LAST:event_agregar_btnActionPerformed
+     public void mostrarMatriz(String matriz[]){
+         String[] encabezado = {"No.","Curso", "Catedrático", "Créditos", "Laboratorio", "Pre_requisito", "Post_Requisito", "Desagsinar"};
+         DefaultTableModel model =  new DefaultTableModel(matrizTemp, encabezado);
+         tablaAsigna = new JTable(model);
+         for(int i =0; i<3; i++){
+             for(int j=0; j<7; j++){
+                 tablaAsigna.setValueAt(matrizTemp[i][j], i, i);
+             }
+         }
+     }
     /**
      * @param args the command line arguments
      */
@@ -204,11 +270,12 @@ public class asignacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregar_btn;
     private javax.swing.JComboBox<String> asignaCurso_cb;
     private javax.swing.JComboBox<String> asignarSemes_cb;
+    private javax.swing.JButton asignar_btn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
