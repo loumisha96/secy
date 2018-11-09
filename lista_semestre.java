@@ -31,6 +31,7 @@ public class lista_semestre {
          temp = temp.siguiente;
          tamaño++;
         }
+        nuevo.año = temp.año +1;
         temp.siguiente = nuevo;
         nuevo.anterior = temp;
         nuevo.siguiente = null;
