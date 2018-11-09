@@ -81,8 +81,19 @@ public class Lista_estudiante {
   public void mostrar(){
     estudiante temp = estudiante_raiz;
     for ( int i=0; i<tamaño; i++){
-        System.out.println(temp.carnet+ ","+ temp.dpi+","+ temp.nombre+","+ temp.correo +","+ temp.credito);
+        System.out.println(temp.carnet+ ","+ temp.dpi+","+ temp.nombre+","+ temp.correo +","+ temp.credito +","+ temp.contraseña);
         temp = temp.estudiante_sig;
     }
+  }
+  public boolean buscar(String usuario, String contraseña){
+      estudiante temp = estudiante_raiz;
+      for( int i =0; i< tamaño; i++){
+          if(temp.usuario.equals(usuario) && temp.contraseña.equals(contraseña)){
+              return true;
+          }
+          else
+              temp = temp.estudiante_sig;
+      }
+      return false;
   }
 }
