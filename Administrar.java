@@ -47,6 +47,7 @@ public class Administrar extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         cargarCursos_btn = new javax.swing.JButton();
         cargarEstudiantes_btn = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         jButton4.setText("jButton4");
 
@@ -90,6 +91,13 @@ public class Administrar extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setText("Salir");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,13 +119,16 @@ public class Administrar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(cargarCursos_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton7)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cargarCursos_btn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cargarEstudiantes_btn)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +148,9 @@ public class Administrar extends javax.swing.JFrame {
                     .addComponent(jButton6)
                     .addComponent(cargarCursos_btn)
                     .addComponent(cargarEstudiantes_btn))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jButton7)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,10 +230,11 @@ public class Administrar extends javax.swing.JFrame {
       
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
-
+         Lista_estudiante listaEstudiante = new Lista_estudiante();
+            
     private void cargarEstudiantes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarEstudiantes_btnActionPerformed
         // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
+      JFileChooser chooser = new JFileChooser();
       chooser.showOpenDialog(this);
       File abrir = chooser.getSelectedFile();
       if(abrir != null){
@@ -230,18 +244,16 @@ public class Administrar extends javax.swing.JFrame {
             String temp = " ";
             String bfRead;
             String[] estudiante= new String[6];
-            Lista_estudiante listaEstudiante = new Lista_estudiante();
-            lista_semestre listaSemestre = new lista_semestre();
+            
             int e5;
             while((bfRead = bf.readLine())!= null){
                 temp =bfRead;
                 estudiante = temp.split(Pattern.quote(";"));
-                System.out.println("lala");
                 if(estudiante[5] ==null){
                  e5=0; 
              }
              else
-               e5 = Integer.parseInt(estudiante[5]);
+             e5 = Integer.parseInt(estudiante[5]);
              estudiante estudiante_nodo = new estudiante(estudiante[0], estudiante[1], estudiante[2], estudiante[3], estudiante[4], e5, listaSemestre);
              
              listaEstudiante.insertar(estudiante_nodo);
@@ -264,6 +276,14 @@ public class Administrar extends javax.swing.JFrame {
         asignacion asign = new asignacion();
         asign.show();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        Log_in.e = listaEstudiante;
+        pantalla_prinicipal pant = new pantalla_prinicipal();
+        pant.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,6 +329,7 @@ public class Administrar extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> tipo_cb;
