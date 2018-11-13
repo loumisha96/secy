@@ -230,6 +230,7 @@ public class Administrar extends javax.swing.JFrame {
          asignacion.cursos = listaCurso; 
         asignacion asign = new asignacion();
         asign.show();
+        this.setVisible(false);
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
          Lista_estudiante listaEstudiante = new Lista_estudiante();
