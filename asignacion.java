@@ -105,7 +105,7 @@ public class asignacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No.", "Curso", "Catedrático", "Créditosl", "Laboratorio", "Pre_Requisito", "Post_Requisito", "Desagsinar"
+
             }
         ));
         jScrollPane2.setViewportView(tablaAsigna);
@@ -197,43 +197,70 @@ public class asignacion extends javax.swing.JFrame {
     private void asignarSemes_cbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarSemes_cbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_asignarSemes_cbActionPerformed
-
+    String [][] cursosAsignados; 
     private void asignar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignar_btnActionPerformed
-        // TODO add your handling code here:
+      
+        cursosAsignados = new String[3][8];
+      for(int i=0; i<3; i++){
+          for(int j=0; j<8; j++){
+              cursosAsignados [i][0]= matrizTemp[i][0];
+              cursosAsignados [i][1]= matrizTemp[i][1];
+              cursosAsignados [i][2]= matrizTemp[i][2];
+              cursosAsignados [i][3]= matrizTemp[i][3];
+              cursosAsignados [i][4]= matrizTemp[i][4];
+              cursosAsignados [i][5]= matrizTemp[i][5];
+              cursosAsignados [i][6]= matrizTemp[i][6];
+              cursosAsignados [i][7]= matrizTemp[i][7];
+          }
+      }
+      for(int i =0; i<3; i++){
+          for(int j=0; j<8; j++){
+              matrizTemp[i][0]= null;
+              matrizTemp[i][1]= null;
+              matrizTemp[i][2]= null;
+              matrizTemp[i][3]= null;
+              matrizTemp[i][4]= null;
+              matrizTemp[i][5]= null;
+              matrizTemp[i][6]= null;
+              matrizTemp[i][7]= null;
+              
+          }
+      }
+        System.out.println(cursosAsignados[0][1]);
     }//GEN-LAST:event_asignar_btnActionPerformed
     String [][] matrizTemp ;
     private void agregar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_btnActionPerformed
-        matrizTemp = new String[3][7];
-         Curso asign = (Curso)asignaCurso_cb.getSelectedItem(); 
+        matrizTemp = new String[3][8];
+        int k =asignaCurso_cb.getSelectedIndex();
+        Curso asign = cursos.obtenerCurso(k);
+         
          int num =0;
          String numero = Integer.toString(num);
          String cre = Integer.toString(asign.credito);
         for(int i=0; i<3; i++){
-            for (int j = 0; j<7; j++){
+            for (int j = 0; j<8; j++){
                 matrizTemp[i][0] = numero;
                 matrizTemp[i][1]= asign.nombre;
-                matrizTemp[i][1]= asign.catedratico;
-                matrizTemp[i][2]= cre;
-                matrizTemp[i][3]= asign.lab;
-                matrizTemp[i][4]= asign.pre_requisito;
-                matrizTemp[i][5]= asign.post_requisito;
-                matrizTemp[i][6]=  "Reprobado";
+                matrizTemp[i][2]= asign.catedratico;
+                matrizTemp[i][3]= cre;
+                matrizTemp[i][4]= asign.lab;
+                matrizTemp[i][5]= asign.pre_requisito;
+                matrizTemp[i][6]= asign.post_requisito;
+                matrizTemp[i][7]=  "Reprobado";
                 num++;
             }
         }
+        tablaAsigna = mostrarCursos();
         System.out.println(matrizTemp[0][1]);
         
     }//GEN-LAST:event_agregar_btnActionPerformed
-     public void mostrarMatriz(String matriz[]){
-         String[] encabezado = {"No.","Curso", "Catedrático", "Créditos", "Laboratorio", "Pre_requisito", "Post_Requisito", "Desagsinar"};
-         DefaultTableModel model =  new DefaultTableModel(matrizTemp, encabezado);
-         tablaAsigna = new JTable(model);
-         for(int i =0; i<3; i++){
-             for(int j=0; j<7; j++){
-                 tablaAsigna.setValueAt(matrizTemp[i][j], i, i);
-             }
-         }
-     }
+    public JTable mostrarCursos(){
+       String [] encabezado = {"No.","Curso", "Catedrático", "Créditos", "Laboratorio", "Pre-Requisito", "Post-Requisito", "Estado"};
+       DefaultTableModel model = new DefaultTableModel();
+       this.tablaAsigna.setModel(model);
+       tablaAsigna = new JTable(matrizTemp, encabezado);
+       return tablaAsigna;
+    } 
     /**
      * @param args the command line arguments
      */
