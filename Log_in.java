@@ -102,6 +102,7 @@ public class Log_in extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     static Lista_estudiante e;
+    estudiante estLog;
     private void ingresar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresar_btnActionPerformed
       if ( user_txt.getText().equals("admin") && pass_txt.getText().equals("1234")){
           Administrar admin = new Administrar();
@@ -109,9 +110,13 @@ public class Log_in extends javax.swing.JFrame {
           this.setVisible(false);
       } 
         else if(e.buscar(user_txt.getText(), pass_txt.getText())){
+            
+            int i = Integer.parseInt(user_txt.getText());
+            estLog = e.obtenerEstudiante(i);
             modulo_estudiante mod = new modulo_estudiante();
             mod.setVisible(true);
             this.setVisible(false);
+            
         }
         else {
           Error error = new Error();

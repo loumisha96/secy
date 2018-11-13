@@ -29,4 +29,5 @@ public class estudiante {
         estudiante_anterior = null;
         this.semestre = semestre;
     }
+    
 }

@@ -87,6 +87,7 @@ public class asignacion extends javax.swing.JFrame {
 
         jButton2.setText("Regresar");
 
+        asignarSemes_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primer Semestre 2018", "Segundo Semestre 2018", "Primer Semestre 2019", "Segundo Semestre 2019", "Primer Semestre 2020", "Segundo Semestre 2020" }));
         asignarSemes_cb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asignarSemes_cbActionPerformed(evt);
@@ -127,14 +128,6 @@ public class asignacion extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addComponent(asignar_btn)
                 .addGap(203, 203, 203))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(85, 85, 85))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -150,6 +143,14 @@ public class asignacion extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(85, 85, 85))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,70 +198,61 @@ public class asignacion extends javax.swing.JFrame {
     private void asignarSemes_cbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarSemes_cbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_asignarSemes_cbActionPerformed
-    String [][] cursosAsignados; 
+    
     private void asignar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignar_btnActionPerformed
-      
-        cursosAsignados = new String[3][8];
-      for(int i=0; i<3; i++){
-          for(int j=0; j<8; j++){
-              cursosAsignados [i][0]= matrizTemp[i][0];
-              cursosAsignados [i][1]= matrizTemp[i][1];
-              cursosAsignados [i][2]= matrizTemp[i][2];
-              cursosAsignados [i][3]= matrizTemp[i][3];
-              cursosAsignados [i][4]= matrizTemp[i][4];
-              cursosAsignados [i][5]= matrizTemp[i][5];
-              cursosAsignados [i][6]= matrizTemp[i][6];
-              cursosAsignados [i][7]= matrizTemp[i][7];
-          }
+     
+     Log_in log = new Log_in();
+     Administrar admin = new Administrar();
+     estudiante estudiante = log.estLog;
+     Lista_curso cursos = new Lista_curso();
+     int semestre = asignarSemes_cb.getSelectedIndex();
+     semestre semestrenuevo = new semestre(semestre, cursos);
+     admin.listaSemestre.insertar(semestre, cursos);
+     estudiante = new estudiante(estudiante.carnet, estudiante.dpi, estudiante.nombre, estudiante.correo, estudiante.direccion, 0, semestres);
+     for(int i=0; i<cursos.tamaño; i++){
+        Curso curso = new Curso(0, matrizTemp[i][1], matrizTemp[i][2], 0, matrizTemp[i][4], matrizTemp[i][5], matrizTemp[i][6], matrizTemp[i][7]) ; 
+        cursos.insetar(curso);
       }
-      for(int i =0; i<3; i++){
-          for(int j=0; j<8; j++){
-              matrizTemp[i][0]= null;
-              matrizTemp[i][1]= null;
-              matrizTemp[i][2]= null;
-              matrizTemp[i][3]= null;
-              matrizTemp[i][4]= null;
-              matrizTemp[i][5]= null;
-              matrizTemp[i][6]= null;
-              matrizTemp[i][7]= null;
-              
-          }
-      }
-        System.out.println(cursosAsignados[0][1]);
+        
     }//GEN-LAST:event_asignar_btnActionPerformed
-    String [][] matrizTemp ;
+    String [][] matrizTemp =new String[3][9]  ;
+    int fila = 0;
+    int num =0;
+    
     private void agregar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_btnActionPerformed
-        matrizTemp = new String[3][8];
+        
         int k =asignaCurso_cb.getSelectedIndex();
         Curso asign = cursos.obtenerCurso(k);
          
-         int num =0;
+         
          String numero = Integer.toString(num);
          String cre = Integer.toString(asign.credito);
-        for(int i=0; i<3; i++){
-            for (int j = 0; j<8; j++){
-                matrizTemp[i][0] = numero;
-                matrizTemp[i][1]= asign.nombre;
-                matrizTemp[i][2]= asign.catedratico;
-                matrizTemp[i][3]= cre;
-                matrizTemp[i][4]= asign.lab;
-                matrizTemp[i][5]= asign.pre_requisito;
-                matrizTemp[i][6]= asign.post_requisito;
-                matrizTemp[i][7]=  "Reprobado";
+        
+                matrizTemp[fila][0] = numero;
+                matrizTemp[fila][1]= asign.nombre;
+                matrizTemp[fila][2]= asign.catedratico;
+                matrizTemp[fila][3]= cre;
+                matrizTemp[fila][4]= asign.lab;
+                matrizTemp[fila][5]= asign.seccion;
+                matrizTemp[fila][6]= asign.pre_requisito;
+                matrizTemp[fila][7]= asign.post_requisito;
+                matrizTemp[fila][8]=  "Reprobado";
                 num++;
+                fila++;
+           
+        
+       String [] encabezado = {"No.","Curso", "Catedrático", "Créditos", "Laboratorio", "Pre-Requisito", "Post-Requisito", "Estado"};
+       DefaultTableModel model = new DefaultTableModel(matrizTemp, encabezado);
+       this.tablaAsigna.setModel(model);
+        for(int i=0; i<3; i++){
+            for(int j=0; j<8; j++){
+                System.out.print(matrizTemp[i][j]);
             }
+            System.out.println(" ");
         }
-        tablaAsigna = mostrarCursos();
-        System.out.println(matrizTemp[0][1]);
         
     }//GEN-LAST:event_agregar_btnActionPerformed
-    public JTable mostrarCursos(){
-       String [] encabezado = {"No.","Curso", "Catedrático", "Créditos", "Laboratorio", "Pre-Requisito", "Post-Requisito", "Estado"};
-       DefaultTableModel model = new DefaultTableModel();
-       this.tablaAsigna.setModel(model);
-       tablaAsigna = new JTable(matrizTemp, encabezado);
-       return tablaAsigna;
-    } 
+   
     /**
      * @param args the command line arguments
      */

@@ -96,4 +96,14 @@ public class Lista_estudiante {
       }
       return false;
   }
+  public estudiante obtenerEstudiante(int pos){
+       estudiante temp = estudiante_raiz;
+       for(int i=0; i<tamaño; i++){
+           if( i == pos)
+               return temp;
+           else
+               temp = temp.estudiante_sig;
+       }
+       return null;
+   }
 }
