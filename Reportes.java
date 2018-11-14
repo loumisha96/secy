@@ -93,7 +93,7 @@ public class Reportes extends javax.swing.JFrame {
     private void listado_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listado_btnActionPerformed
        Administrar admin = new Administrar();
        listado listado = new listado();
-       listado.mostrarTabla(admin.listaEstudiante.tamaño, admin.estudiante_nodo);
+       listado.mostrarTabla(admin.listaEstudiante.tamaño, admin.listaEstudiante.estudiante_raiz);
        listado.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_listado_btnActionPerformed

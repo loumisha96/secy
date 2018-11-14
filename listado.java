@@ -16,9 +16,9 @@ public class listado extends javax.swing.JFrame {
      //Administrar admin = new Administrar();
      String [] encabezado ={"CARNET", "DPI", "NOMBRE", "CORREO", "DIRECCION", "CREDITOS", "CONTRASEÑA"};
      String [][] matriz = new String [tamaño][7];
-    String cre = Integer.toString(estudiante.credito);
-     for (int i=0; i<7; i++){
-           
+    
+     for (int i=0; i<tamaño; i++){
+           String cre = Integer.toString(estudiante.credito);
             matriz[i][0] = estudiante.carnet;
             matriz[i][1] = estudiante.dpi;
             matriz[i][2] = estudiante.nombre;
