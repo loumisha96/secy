@@ -76,6 +76,11 @@ public class Administrar extends javax.swing.JFrame {
         jButton5.setText("Eliminar");
 
         jButton6.setText("REPORTES");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         cargarCursos_btn.setText("Cargar Cursos");
         cargarCursos_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -234,12 +239,13 @@ public class Administrar extends javax.swing.JFrame {
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
          Lista_estudiante listaEstudiante = new Lista_estudiante();
-            
+     estudiante estudiante_nodo;    
     private void cargarEstudiantes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarEstudiantes_btnActionPerformed
         // TODO add your handling code here:
       JFileChooser chooser = new JFileChooser();
       chooser.showOpenDialog(this);
       File abrir = chooser.getSelectedFile();
+      
       if(abrir != null){
            String texto = " ";
         try{
@@ -257,7 +263,7 @@ public class Administrar extends javax.swing.JFrame {
              }
              else
              e5 = Integer.parseInt(estudiante[5]);
-             estudiante estudiante_nodo = new estudiante(estudiante[0], estudiante[1], estudiante[2], estudiante[3], estudiante[4], e5, listaSemestre);
+             estudiante_nodo = new estudiante(estudiante[0], estudiante[1], estudiante[2], estudiante[3], estudiante[4], e5, listaSemestre);
              
              listaEstudiante.insertar(estudiante_nodo);
              listaEstudiante.mostrar();
@@ -272,8 +278,9 @@ public class Administrar extends javax.swing.JFrame {
 
       }
        asignacion.semestres= listaSemestre; 
-        asignacion asign = new asignacion();
-        asign.show();
+       Reportes reportes = new Reportes();
+       reportes.setVisible(true);
+       this.setVisible(true);
      
     }//GEN-LAST:event_cargarEstudiantes_btnActionPerformed
 
@@ -288,6 +295,12 @@ public class Administrar extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_salida_btnActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+      Reportes reportes = new Reportes();
+      reportes.setVisible(true);
+      this.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
