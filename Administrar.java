@@ -254,7 +254,9 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
-         asignacion.cursos = listaCurso; 
+         /*asignacion.cursos = listaCurso; 
+         asignacion asig = new asignacion();
+         asig.show();*/
         
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed

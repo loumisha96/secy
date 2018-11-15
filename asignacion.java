@@ -80,7 +80,6 @@ public class asignacion extends javax.swing.JFrame {
 
         jButton2.setText("Regresar");
 
-        asignarSemes_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primer Semestre 2018", "Segundo Semestre 2018", "Primer Semestre 2019", "Segundo Semestre 2019", "Primer Semestre 2020", "Segundo Semestre 2020" }));
         asignarSemes_cb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 asignarSemes_cbActionPerformed(evt);
