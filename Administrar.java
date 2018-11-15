@@ -195,9 +195,14 @@ public class Administrar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(tipo_cb.getSelectedItem().toString().equals("Estudiante")){
-          ModificarEstudiante mod = new ModificarEstudiante();
-          mod.setVisible(true);
+          AgregarEstudiante agre = new AgregarEstudiante();
+          agre.setVisible(true);
           this.setVisible(false);
+        }
+        else{
+          AgregarCurso agre = new AgregarCurso();
+          agre.setVisible(true);
+          this.setVisible(false);  
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     String texto;
@@ -218,25 +223,19 @@ public class Administrar extends javax.swing.JFrame {
             lista_catedratico listaCate = new lista_catedratico();
             
             
-            int curso0 ;
+            
             int curso3;
             while((bfRead = bf.readLine())!= null){
                 temp =bfRead;
                 curso = temp.split(Pattern.quote(";"));
                 System.out.println("lala");
-             if(curso[0] ==null){
-                curso0=0; 
-                
-             }
-             else
-               curso0 = Integer.parseInt(curso[0]);
 
              if(curso[3] ==null){
                 curso3=0; 
              }
              else
                curso3 = Integer.parseInt(curso[3]);
-             Curso curso_nodo = new Curso(curso0, curso[1], curso[2], curso3, curso[4], curso[5], curso[6], curso[7]);
+             Curso curso_nodo = new Curso(curso[0], curso[1], curso[2], curso3, curso[4], curso[5], curso[6], curso[7]);
              
              listaCurso.insetar(curso_nodo);
              listaCurso.mostrar();
@@ -256,9 +255,7 @@ public class Administrar extends javax.swing.JFrame {
 
       }
          asignacion.cursos = listaCurso; 
-        asignacion asign = new asignacion();
-        asign.show();
-        this.setVisible(false);
+        
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
     static   Lista_estudiante listaEstudiante = new Lista_estudiante();
@@ -301,14 +298,23 @@ public class Administrar extends javax.swing.JFrame {
 
       }
        asignacion.semestres= listaSemestre; 
-       Reportes reportes = new Reportes();
-       reportes.setVisible(true);
-       this.setVisible(true);
+      
      
     }//GEN-LAST:event_cargarEstudiantes_btnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
+        if(tipo_cb.getSelectedItem().toString().equals("Estudiante")){
+           listado listado = new listado();
+           listado.mostrarTabla(Administrar.listaEstudiante.tamaño, Administrar.listaEstudiante);
+           listado.setVisible(true);
+           this.setVisible(false);
+        } 
+        else{
+            VisualizarCursos listado = new VisualizarCursos();
+            listado.mostrarTabla(Administrar.listaCurso.tamaño, Administrar.listaCurso);
+            listado.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void salida_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salida_btnActionPerformed
@@ -341,12 +347,11 @@ public class Administrar extends javax.swing.JFrame {
 
     private void eliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btnActionPerformed
        if(tipo_cb.getSelectedItem().toString().equals("Estudiante")){
-          // Str carnet = codigo_txt.getText();
-        //   Administrar.listaEstudiante.eliminar(carnet);
+           String carnet = codigo_txt.getText();
+           Administrar.listaEstudiante.eliminar(carnet);
        }
        else{
-           int cod = Integer.parseInt( codigo_txt.getText());
-           Administrar.listaCurso.eliminar(cod);
+           Administrar.listaCurso.eliminar(codigo_txt.getText());
        }
     }//GEN-LAST:event_eliminar_btnActionPerformed
 

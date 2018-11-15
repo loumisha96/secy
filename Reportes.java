@@ -44,6 +44,11 @@ public class Reportes extends javax.swing.JFrame {
         });
 
         regresar_btn.setText("Regresar");
+        regresar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresar_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,6 +103,12 @@ public class Reportes extends javax.swing.JFrame {
        nota.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_nota_btnActionPerformed
+
+    private void regresar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar_btnActionPerformed
+       Administrar admin = new Administrar();
+       admin.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_regresar_btnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -84,8 +84,9 @@ public class Lista_estudiante {
               estudiante anterior = temp;
               while(temp.estudiante_sig != estudiante_raiz){
                   if(temp.carnet == carnet){
-                      temp.estudiante_sig = temp.estudiante_sig.estudiante_sig;
-                      temp.estudiante_sig.estudiante_sig.estudiante_anterior = temp;
+                      temp.estudiante_sig= temp.estudiante_sig.estudiante_sig;
+                      anterior.estudiante_anterior = anterior.estudiante_anterior.estudiante_anterior;
+                      
                       tamaño--;
                   }
                   else{
@@ -95,7 +96,7 @@ public class Lista_estudiante {
               }
               if(temp.carnet == carnet){
                   anterior.estudiante_sig = estudiante_raiz;
-                  
+                  temp.estudiante_anterior.estudiante_sig = temp.estudiante_sig;
                   tamaño--;
               }
           }

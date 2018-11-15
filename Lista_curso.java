@@ -36,7 +36,7 @@ public class Lista_curso {
            tamaño ++;
        }
    }
-   public Curso buscar(int numero){
+   public Curso buscar(String numero){
      Curso temp = curso_raiz;
      if( temp.numero == numero ){
               return temp;
@@ -63,7 +63,7 @@ public class Lista_curso {
            encontrado.catedratico = curso.catedratico;
        }
    }
-   public void eliminar(int numero){
+   public void eliminar(String numero){
        if(!vacia()){
            if(curso_raiz.siguinte_curso == curso_raiz){
                curso_raiz = null;

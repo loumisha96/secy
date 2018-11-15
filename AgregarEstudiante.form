@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,7 +52,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="nombre_txt" max="32767" attributes="0"/>
+                              <Component id="nombre_txt" alignment="1" max="32767" attributes="0"/>
                               <Component id="carnet_txt" alignment="1" max="32767" attributes="0"/>
                               <Component id="dpi_txt" alignment="1" max="32767" attributes="0"/>
                           </Group>
@@ -65,8 +65,8 @@
                           </Group>
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="correo_txt" max="32767" attributes="0"/>
-                              <Component id="direccion_txt" max="32767" attributes="0"/>
+                              <Component id="correo_txt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="direccion_txt" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jButton2" min="-2" pref="79" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
