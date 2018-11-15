@@ -12,13 +12,13 @@ public class listado extends javax.swing.JFrame {
     public listado() {
         initComponents();
     }
-    public void mostrarTabla(int tamaño, estudiante estudiante){
+    public void mostrarTabla(int tamaño, Lista_estudiante estudiantes){
      //Administrar admin = new Administrar();
      String [] encabezado ={"CARNET", "DPI", "NOMBRE", "CORREO", "DIRECCION", "CREDITOS", "CONTRASEÑA"};
      String [][] matriz = new String [tamaño][7];
-    
+     estudiante estudiante = estudiantes.estudiante_raiz;
      for (int i=0; i<tamaño; i++){
-           String cre = Integer.toString(estudiante.credito);
+           String cre = String.valueOf(estudiante.credito).toString();
             matriz[i][0] = estudiante.carnet;
             matriz[i][1] = estudiante.dpi;
             matriz[i][2] = estudiante.nombre;
@@ -26,6 +26,7 @@ public class listado extends javax.swing.JFrame {
             matriz[i][4] = estudiante.direccion;
             matriz[i][5] = cre;
             matriz[i][6] = estudiante.contraseña;
+            estudiante = estudiante.estudiante_sig;
        }
        DefaultTableModel model = new DefaultTableModel(matriz, encabezado);
        this.tablaListado.setModel(model);

@@ -41,13 +41,14 @@ public class Administrar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         tipo_cb = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        modificar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        eliminar_btn = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         cargarCursos_btn = new javax.swing.JButton();
         cargarEstudiantes_btn = new javax.swing.JButton();
         salida_btn = new javax.swing.JButton();
+        codigo_txt = new javax.swing.JTextField();
 
         jButton4.setText("jButton4");
 
@@ -64,7 +65,12 @@ public class Administrar extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Modificar");
+        modificar.setText("Modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Visualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +79,12 @@ public class Administrar extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Eliminar");
+        eliminar_btn.setText("Eliminar");
+        eliminar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_btnActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("REPORTES");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -110,59 +121,69 @@ public class Administrar extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tipo_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(73, 73, 73)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(salida_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(tipo_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(modificar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(codigo_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eliminar_btn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
                                 .addComponent(cargarCursos_btn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton6))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(151, 151, 151)
+                                .addComponent(salida_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cargarEstudiantes_btn)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
                 .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tipo_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
-                .addGap(33, 33, 33)
+                    .addComponent(modificar)
+                    .addComponent(jButton3))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(codigo_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminar_btn))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargarCursos_btn)
+                    .addComponent(jButton6)
                     .addComponent(cargarEstudiantes_btn))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salida_btn)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,12 +195,14 @@ public class Administrar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(tipo_cb.getSelectedItem().toString().equals("Estudiante")){
-             
+          ModificarEstudiante mod = new ModificarEstudiante();
+          mod.setVisible(true);
+          this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     String texto;
-    lista_semestre listaSemestre = new lista_semestre();
-    Lista_curso listaCurso = new Lista_curso();
+    static lista_semestre listaSemestre = new lista_semestre();
+    static Lista_curso listaCurso = new Lista_curso();
     private void cargarCursos_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCursos_btnActionPerformed
       JFileChooser chooser = new JFileChooser();
       chooser.showOpenDialog(this);
@@ -238,7 +261,7 @@ public class Administrar extends javax.swing.JFrame {
         this.setVisible(false);
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed
-         Lista_estudiante listaEstudiante = new Lista_estudiante();
+    static   Lista_estudiante listaEstudiante = new Lista_estudiante();
      estudiante estudiante_nodo;    
     private void cargarEstudiantes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarEstudiantes_btnActionPerformed
         // TODO add your handling code here:
@@ -302,6 +325,31 @@ public class Administrar extends javax.swing.JFrame {
       this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        if(tipo_cb.getSelectedItem().toString().equals("Estudiante")){
+            ModificarEstudiante modif = new ModificarEstudiante();
+            modif.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            ModificarCurso modif = new ModificarCurso();
+            modif.setVisible(true);
+            this.setVisible(false);
+        }
+            
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void eliminar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_btnActionPerformed
+       if(tipo_cb.getSelectedItem().toString().equals("Estudiante")){
+          // Str carnet = codigo_txt.getText();
+        //   Administrar.listaEstudiante.eliminar(carnet);
+       }
+       else{
+           int cod = Integer.parseInt( codigo_txt.getText());
+           Administrar.listaCurso.eliminar(cod);
+       }
+    }//GEN-LAST:event_eliminar_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -340,14 +388,15 @@ public class Administrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cargarCursos_btn;
     private javax.swing.JButton cargarEstudiantes_btn;
+    private javax.swing.JTextField codigo_txt;
+    private javax.swing.JButton eliminar_btn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton modificar;
     private javax.swing.JButton salida_btn;
     private javax.swing.JComboBox<String> tipo_cb;
     // End of variables declaration//GEN-END:variables
