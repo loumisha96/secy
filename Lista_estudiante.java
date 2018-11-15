@@ -73,8 +73,32 @@ public class Lista_estudiante {
       }
       
   }
-  public void eliminar(int carnet){
+  public void eliminar(String carnet){
       if(!vacia()){
+          if(estudiante_raiz.estudiante_sig == estudiante_raiz){
+              estudiante_raiz = null;
+              tamaño--;
+          }
+          else{
+              estudiante temp = estudiante_raiz;
+              estudiante anterior = temp;
+              while(temp.estudiante_sig != estudiante_raiz){
+                  if(temp.carnet == carnet){
+                      temp.estudiante_sig = temp.estudiante_sig.estudiante_sig;
+                      temp.estudiante_sig.estudiante_sig.estudiante_anterior = temp;
+                      tamaño--;
+                  }
+                  else{
+                      anterior = temp;
+                      temp = temp.estudiante_sig;
+                  }
+              }
+              if(temp.carnet == carnet){
+                  anterior.estudiante_sig = estudiante_raiz;
+                  
+                  tamaño--;
+              }
+          }
           
       }
   }
