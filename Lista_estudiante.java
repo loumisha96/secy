@@ -86,7 +86,9 @@ public class Lista_estudiante {
                   if(temp.carnet.equals(carnet)){
                       if(temp== estudiante_raiz)
                           estudiante_raiz = temp.estudiante_sig;
-                      
+                      temp.estudiante_sig.estudiante_anterior = temp.estudiante_anterior;
+                      temp.estudiante_anterior.estudiante_sig = temp.estudiante_sig;
+                      tamaño--;
                       return;
                   }
                   else{
@@ -94,13 +96,12 @@ public class Lista_estudiante {
                       temp = temp.estudiante_sig;
                   }
               }
-              if(temp.carnet == carnet){
+              if(temp.carnet.equals(carnet)){
                       temp.estudiante_sig.estudiante_anterior = temp.estudiante_anterior;
                       temp.estudiante_anterior.estudiante_sig = temp.estudiante_sig;
                       tamaño--;
               }
           }
-          
       }
   }
   public void mostrar(){

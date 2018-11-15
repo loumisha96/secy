@@ -1,7 +1,7 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+- * and open the template in the editor.
  */
 package secy;
 
@@ -221,9 +221,6 @@ public class Administrar extends javax.swing.JFrame {
             String[] curso= new String[8];
             
             lista_catedratico listaCate = new lista_catedratico();
-            
-            
-            
             int curso3;
             while((bfRead = bf.readLine())!= null){
                 temp =bfRead;
@@ -299,7 +296,7 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
-       asignacion.semestres= listaSemestre; 
+       //asignacion.semestres= listaSemestre; 
       
      
     }//GEN-LAST:event_cargarEstudiantes_btnActionPerformed

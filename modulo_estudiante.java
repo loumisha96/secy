@@ -2,6 +2,7 @@
 package secy;
 
 import static secy.Administrar.listaCurso;
+import static secy.Administrar.listaSemestre;
 
 /**
  *
@@ -14,6 +15,7 @@ public class modulo_estudiante extends javax.swing.JFrame {
      */
     public modulo_estudiante() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -86,10 +88,11 @@ public class modulo_estudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       asignacion.cursos = listaCurso; 
-         asignacion a = new asignacion();
-        a.setVisible(true);
-        this.setVisible(false);
+      asignacion.semestres= listaSemestre; 
+        asignacion.cursos = listaCurso; 
+         asignacion asig = new asignacion();
+         asig.show();
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
