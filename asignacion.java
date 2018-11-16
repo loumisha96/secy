@@ -96,6 +96,12 @@ public class asignacion extends javax.swing.JFrame {
             }
         });
 
+        asignaCurso_cb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignaCurso_cbActionPerformed(evt);
+            }
+        });
+
         asignar_btn.setText("Asignar");
         asignar_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,9 +224,10 @@ public class asignacion extends javax.swing.JFrame {
         cursos.insetar(curso);
       }
      admin.listaSemestre.insertar(semestre, cursos);
-     estudiante = new estudiante(estudiante.carnet, estudiante.dpi, estudiante.nombre, estudiante.correo, estudiante.direccion, 0, semestres);   
+     // que estudiante logeado apunte a listaSemestre;
+    
     }//GEN-LAST:event_asignar_btnActionPerformed
-    String [][] matrizTemp =new String[3][9]  ;
+    String [][] matrizTemp =new String[3][9];
     int fila = 0;
     int num =0;
     
@@ -264,6 +271,10 @@ public class asignacion extends javax.swing.JFrame {
        mod.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void asignaCurso_cbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignaCurso_cbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_asignaCurso_cbActionPerformed
    
     /**
      * @param args the command line arguments

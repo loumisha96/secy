@@ -15,10 +15,12 @@ public class catedratico {
     public catedratico(String nombre, lista_semestre semestre) {
      StringTokenizer st = new StringTokenizer(nombre); 
      char user = ' ';
+    
     while(st.hasMoreTokens()) { 
      
-       user = st.nextToken().charAt(0); 
-       
+       user = Character.valueOf(st.nextToken().charAt(0)) ; 
+        System.out.println(user);
+        
       }
        String u = Character.toString(user);
         int ale = 0;
