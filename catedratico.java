@@ -1,6 +1,9 @@
 
 package secy;
 
+import java.util.StringTokenizer;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author lourd
@@ -10,11 +13,26 @@ public class catedratico {
     catedratico siguiente;
     lista_semestre semestre;
     public catedratico(String nombre, lista_semestre semestre) {
+     StringTokenizer st = new StringTokenizer(nombre); 
+     char user = ' ';
+    while(st.hasMoreTokens()) { 
+     
+       user = st.nextToken().charAt(0); 
+       
+      }
+       String u = Character.toString(user);
+        int ale = 0;
+        for ( int i =0; i<10; i++){
+            ale = (int)( Math.random()*150)+50; 
+        }
         this.nombre = nombre;
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.usuario =  Integer.toString(user);
+        this.contraseña = u+ale;
         siguiente = null;
         this.semestre = semestre;
     }
+    
+    
+ 
     
 }

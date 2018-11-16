@@ -105,7 +105,7 @@ public class Log_in extends javax.swing.JFrame {
     static lista_catedratico cat;
     estudiante estLog;
     private void ingresar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresar_btnActionPerformed
-      if ( user_txt.getText().equals("admin") && pass_txt.getText().equals("1234")){
+      if ( user_txt.getText().equals("201602935") && pass_txt.getText().equals("201602935")){
           Administrar admin = new Administrar();
           admin.setVisible(true);
           this.setVisible(false);
@@ -119,9 +119,11 @@ public class Log_in extends javax.swing.JFrame {
             this.setVisible(false);
             
         }
-       /* else if(cat.equals()){
-            
-        }*/
+        else if(cat.buscar(user_txt.getText(), pass_txt.getText())){
+            ingreso_notas ingr = new ingreso_notas();
+            ingr.setVisible(true);
+            this.setVisible(false);
+        }
         else {
           Error error = new Error();
           error.setVisible(true);

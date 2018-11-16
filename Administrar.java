@@ -241,6 +241,7 @@ public class Administrar extends javax.swing.JFrame {
              listaCate.insertar(cate);
              listaCate.mostrar();
              
+             
            }
             
             texto = temp;
@@ -251,8 +252,8 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
-         /*asignacion.cursos = listaCurso; 
-         asignacion asig = new asignacion();
+         asignacion.cursos = listaCurso; 
+         /*asignacion asig = new asignacion();
          asig.show();*/
         
      
@@ -296,7 +297,7 @@ public class Administrar extends javax.swing.JFrame {
           //System.out.println(texto);
 
       }
-       //asignacion.semestres= listaSemestre; 
+       asignacion.semestres= listaSemestre; 
       
      
     }//GEN-LAST:event_cargarEstudiantes_btnActionPerformed

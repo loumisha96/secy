@@ -33,8 +33,19 @@ public class lista_catedratico {
    public void mostrar(){
        catedratico aux = cate_raiz;
         for(int i =0; i<tamaño; i++){
-            System.out.println(aux.nombre);
+            System.out.println(aux.nombre +","+ aux.usuario + ","+ aux.contraseña);
             aux = aux.siguiente;
         }
    }
+    public boolean buscar(String usuario, String contraseña){
+      catedratico temp = cate_raiz;
+      for( int i =0; i< tamaño; i++){
+          if(temp.usuario.equals(usuario) && temp.contraseña.equals(contraseña)){
+              return true;
+          }
+          else
+              temp = temp.siguiente;
+      }
+      return false;
+  }
 }
