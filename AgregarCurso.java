@@ -179,6 +179,7 @@ public class AgregarCurso extends javax.swing.JFrame {
         
         Curso encontrado = Administrar.listaCurso.buscar(cod_txt.getText());
         if(encontrado == null){
+            
             Curso nuevo = new Curso(cod_txt.getText(), nombre_txt.getText(), catedra_txt.getText(), Integer.parseInt(credito_txt.getText()), lab_txt.getText(), seccion_txt.getText(), pre_txt.getText(), post_txt.getText());
             Administrar.listaCurso.insetar(nuevo);
         }

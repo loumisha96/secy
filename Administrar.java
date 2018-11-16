@@ -205,7 +205,7 @@ public class Administrar extends javax.swing.JFrame {
           this.setVisible(false);  
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-    String texto;
+    //String texto;
     static lista_semestre listaSemestre = new lista_semestre();
     static Lista_curso listaCurso = new Lista_curso();
     private void cargarCursos_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarCursos_btnActionPerformed
@@ -225,36 +225,30 @@ public class Administrar extends javax.swing.JFrame {
             while((bfRead = bf.readLine())!= null){
                 temp =bfRead;
                 curso = temp.split(Pattern.quote(";"));
-                System.out.println("lala");
-
              if(curso[3] ==null){
                 curso3=0; 
              }
              else
                curso3 = Integer.parseInt(curso[3]);
              Curso curso_nodo = new Curso(curso[0], curso[1], curso[2], curso3, curso[4], curso[5], curso[6], curso[7]);
-             
              listaCurso.insetar(curso_nodo);
              listaCurso.mostrar();
              listaSemestre.insertar(2018, listaCurso);
              catedratico cate = new catedratico(curso[2], listaSemestre);
              listaCate.insertar(cate);
              listaCate.mostrar();
-             
-             
            }
             
             texto = temp;
         }catch(Exception e){
-            System.out.println("No se encontró archivo");
+            //System.out.println("No se encontró archivo");
             
         }
-          //System.out.println(texto);
-
       }
+      //modulo_estudiante.cursos =
          asignacion.cursos = listaCurso; 
-         /*asignacion asig = new asignacion();
-         asig.show();*/
+         asignacion asig = new asignacion();
+         asig.show();
         
      
     }//GEN-LAST:event_cargarCursos_btnActionPerformed

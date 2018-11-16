@@ -75,6 +75,7 @@ public class asignacion extends javax.swing.JFrame {
         jLabel1.setText("ASIGNACION");
 
         jLabel2.setText("LOGO");
+        jLabel2.setMinimumSize(new java.awt.Dimension(282, 250));
 
         jButton1.setText("Log Out");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,23 +156,23 @@ public class asignacion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 899, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
+                        .addGap(426, 426, 426)
                         .addComponent(jLabel1)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel1)
-                        .addGap(7, 7, 7)
+                        .addGap(43, 43, 43)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(34, 34, 34)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
@@ -194,7 +195,7 @@ public class asignacion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,21 +214,22 @@ public class asignacion extends javax.swing.JFrame {
     private void asignar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignar_btnActionPerformed
      
      Log_in log = new Log_in();
-     Administrar admin = new Administrar();
-     estudiante estudiante = log.estLog;
-     Lista_curso cursos = new Lista_curso();
-     int semestre = asignarSemes_cb.getSelectedIndex();
+     Lista_curso listaAsignada = new Lista_curso();
+     lista_semestre semesAsignado = new lista_semestre();
+    int semestre = asignarSemes_cb.getSelectedIndex();
      //semestre semestrenuevo = new semestre(semestre, cursos);
      
-     for(int i=0; i<cursos.tamaño; i++){
-        Curso curso = new Curso(matrizTemp[i][0], matrizTemp[i][1], matrizTemp[i][2], 0, matrizTemp[i][4], matrizTemp[i][5], matrizTemp[i][6], matrizTemp[i][7]) ; 
-        cursos.insetar(curso);
-      }
-     admin.listaSemestre.insertar(semestre, cursos);
+     
+    Curso cursoAsignados = new Curso(matrizTemp[fila][0], matrizTemp[fila][1], matrizTemp[fila][2], 0, matrizTemp[fila][4], matrizTemp[fila][5], matrizTemp[fila][6], matrizTemp[fila][7]) ; 
+    listaAsignada.insetar(cursoAsignados);
+      
+     semesAsignado.insertar(semestre, listaAsignada);
+     log.estLog.semestre = semesAsignado;
+     
      // que estudiante logeado apunte a listaSemestre;
     
     }//GEN-LAST:event_asignar_btnActionPerformed
-    String [][] matrizTemp =new String[3][9];
+    String [][] matrizTemp =new String[3][10];
     int fila = 0;
     int num =0;
     
@@ -241,19 +243,20 @@ public class asignacion extends javax.swing.JFrame {
          String cre = Integer.toString(asign.credito);
         
                 matrizTemp[fila][0] = numero;
-                matrizTemp[fila][1]= asign.nombre;
-                matrizTemp[fila][2]= asign.catedratico;
-                matrizTemp[fila][3]= cre;
-                matrizTemp[fila][4]= asign.lab;
-                matrizTemp[fila][5]= asign.seccion;
-                matrizTemp[fila][6]= asign.pre_requisito;
-                matrizTemp[fila][7]= asign.post_requisito;
-                matrizTemp[fila][8]=  "Reprobado";
+                matrizTemp[fila][1] = asign.numero;
+                matrizTemp[fila][2]= asign.nombre;
+                matrizTemp[fila][3]= asign.catedratico;
+                matrizTemp[fila][4]= cre;
+                matrizTemp[fila][5]= asign.lab;
+                matrizTemp[fila][6]= asign.seccion;
+                matrizTemp[fila][7]= asign.pre_requisito;
+                matrizTemp[fila][8]= asign.post_requisito;
+                matrizTemp[fila][9]=  "Reprobado";
                 num++;
                 fila++;
            
         
-       String [] encabezado = {"No.","Curso", "Catedrático", "Créditos", "Laboratorio", "Pre-Requisito", "Post-Requisito", "Estado"};
+       String [] encabezado = {"No.", "Codigo","Curso", "Catedrático", "Créditos", "Laboratorio", "Sección", "Pre-Requisito", "Post-Requisito", "Estado"};
        DefaultTableModel model = new DefaultTableModel(matrizTemp, encabezado);
        this.tablaAsigna.setModel(model);
         

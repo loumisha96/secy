@@ -42,6 +42,11 @@ public class Log_in extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         pass_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +108,7 @@ public class Log_in extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     static Lista_estudiante e;
     static lista_catedratico cat;
-    estudiante estLog;
+     static estudiante estLog;
     private void ingresar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresar_btnActionPerformed
       if ( user_txt.getText().equals("201602935") && pass_txt.getText().equals("201602935")){
           Administrar admin = new Administrar();
@@ -111,7 +116,6 @@ public class Log_in extends javax.swing.JFrame {
           this.setVisible(false);
       } 
         else if(e.buscar(user_txt.getText(), pass_txt.getText())){
-            
             int i = Integer.parseInt(user_txt.getText());
             estLog = e.obtenerEstudiante(i);
             modulo_estudiante mod = new modulo_estudiante();
@@ -119,11 +123,11 @@ public class Log_in extends javax.swing.JFrame {
             this.setVisible(false);
             
         }
-        else if(cat.buscar(user_txt.getText(), pass_txt.getText())){
+      /*  else if(cat.buscar(user_txt.getText(), pass_txt.getText())){
             ingreso_notas ingr = new ingreso_notas();
             ingr.setVisible(true);
             this.setVisible(false);
-        }
+        }*/
         else {
           Error error = new Error();
           error.setVisible(true);
@@ -135,6 +139,12 @@ public class Log_in extends javax.swing.JFrame {
     private void pass_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pass_txtActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        pantalla_prinicipal pant = new pantalla_prinicipal();
+        pant.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

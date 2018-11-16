@@ -1,8 +1,6 @@
 
 package secy;
 
-import static secy.Administrar.listaCurso;
-import static secy.Administrar.listaSemestre;
 
 /**
  *
@@ -88,8 +86,8 @@ public class modulo_estudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      asignacion.semestres= listaSemestre; 
-        asignacion.cursos = listaCurso; 
+      asignacion.semestres= Administrar.listaSemestre; 
+        asignacion.cursos = Administrar.listaCurso; 
          asignacion asig = new asignacion();
          asig.show();
      
