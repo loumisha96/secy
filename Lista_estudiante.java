@@ -42,12 +42,12 @@ public class Lista_estudiante {
   public estudiante buscar (String carnet){
     estudiante temp = estudiante_raiz;
     
-     if( temp.carnet == carnet){
+     if( temp.carnet.equals(carnet)){
               return temp;
           }
           else
               temp = temp.estudiante_sig;
-     while(temp != estudiante_raiz){
+     while(temp.carnet.equals(carnet)){
           if( temp.carnet == carnet ){
               return temp;
           }

@@ -22,6 +22,7 @@ public class asignacion extends javax.swing.JFrame {
     public asignacion() {
         initComponents();
         Curso curso;
+        try{
         if(cursos != null){
           for(int i=0; i<cursos.tamaño; i++){
            curso = cursos.obtenerCurso(i);
@@ -37,8 +38,10 @@ public class asignacion extends javax.swing.JFrame {
             }
         }
         
+    }catch(Exception ex){
+            System.out.println(ex);
     }
-    
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -213,23 +216,23 @@ public class asignacion extends javax.swing.JFrame {
     
     private void asignar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignar_btnActionPerformed
      
-     Log_in log = new Log_in();
+     
      Lista_curso listaAsignada = new Lista_curso();
      lista_semestre semesAsignado = new lista_semestre();
-    int semestre = asignarSemes_cb.getSelectedIndex();
+    int semestre =  Integer.parseInt(asignarSemes_cb.getSelectedItem().toString());
      //semestre semestrenuevo = new semestre(semestre, cursos);
      
-     
+     matrizTemp[fila][10] = "SI";
     Curso cursoAsignados = new Curso(matrizTemp[fila][0], matrizTemp[fila][1], matrizTemp[fila][2], 0, matrizTemp[fila][4], matrizTemp[fila][5], matrizTemp[fila][6], matrizTemp[fila][7]) ; 
     listaAsignada.insetar(cursoAsignados);
       
      semesAsignado.insertar(semestre, listaAsignada);
-     log.estLog.semestre = semesAsignado;
+     Log_in.estLog.semestre = semesAsignado;
      
      // que estudiante logeado apunte a listaSemestre;
     
     }//GEN-LAST:event_asignar_btnActionPerformed
-    String [][] matrizTemp =new String[3][10];
+    String [][] matrizTemp =new String[3][11];
     int fila = 0;
     int num =0;
     
@@ -252,11 +255,12 @@ public class asignacion extends javax.swing.JFrame {
                 matrizTemp[fila][7]= asign.pre_requisito;
                 matrizTemp[fila][8]= asign.post_requisito;
                 matrizTemp[fila][9]=  "Reprobado";
+                matrizTemp[fila][10]=  "No ";
                 num++;
                 fila++;
            
         
-       String [] encabezado = {"No.", "Codigo","Curso", "Catedrático", "Créditos", "Laboratorio", "Sección", "Pre-Requisito", "Post-Requisito", "Estado"};
+       String [] encabezado = {"No.", "Codigo","Curso", "Catedrático", "Créditos", "Laboratorio", "Sección", "Pre-Requisito", "Post-Requisito", "Estado", "Asignado"};
        DefaultTableModel model = new DefaultTableModel(matrizTemp, encabezado);
        this.tablaAsigna.setModel(model);
         
@@ -329,4 +333,5 @@ public class asignacion extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tablaAsigna;
     // End of variables declaration//GEN-END:variables
+
 }

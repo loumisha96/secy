@@ -116,18 +116,19 @@ public class Log_in extends javax.swing.JFrame {
           this.setVisible(false);
       } 
         else if(e.buscar(user_txt.getText(), pass_txt.getText())){
-            int i = Integer.parseInt(user_txt.getText());
-            estLog = e.obtenerEstudiante(i);
+            String i =user_txt.getText();
+            estLog = e.buscar(i);
             modulo_estudiante mod = new modulo_estudiante();
             mod.setVisible(true);
             this.setVisible(false);
             
         }
-      /*  else if(cat.buscar(user_txt.getText(), pass_txt.getText())){
+      else if(cat.buscar(user_txt.getText(), pass_txt.getText())){
             ingreso_notas ingr = new ingreso_notas();
             ingr.setVisible(true);
             this.setVisible(false);
-        }*/
+            
+        }
         else {
           Error error = new Error();
           error.setVisible(true);
